@@ -17,7 +17,6 @@ void CreatPolyn(polynomial &p, int m);
 bool IsZero(polynomial &p);
 void addPolyn(polynomial &pa, polynomial &pb);
 //----------------------------------------------------------------------------
-
 /*
 	创建一个带头结点的链表
 	LinkList &p:被创建的链表的地址
@@ -33,7 +32,7 @@ void CreatList(LinkList &p, float _coef, int _expn)
 	p->coef = _coef;	//头结点的系数赋值为_coef
 	p->expn = _expn;	//头结点的指数赋值为_expn
 }
-
+//----------------------------------------------------------------------------
 /*
 	在链表末尾创建一个节点
 	LinkList &p:被创建的链表的地址
@@ -76,7 +75,7 @@ void addAtTail(LinkList &p, float _coef, int _expn)
 		p->expn = _expn;
 	}
 }
-
+//----------------------------------------------------------------------------
 /*
 	显示多项式,把多项式打印出来
 	LinkList &p:被显示的多项式的地址
@@ -117,7 +116,7 @@ void show(polynomial &p)
 	else
 		printf("0\n");
 }
-
+//----------------------------------------------------------------------------
 /*
 	判断多项式是否为零
 	若为零或输入的链表为NULL,则返回true
@@ -151,7 +150,7 @@ bool IsZero(polynomial &p)
 	else
 		return true;
 }
-
+//----------------------------------------------------------------------------
 /*
 	创建一个多项式
 	polynomial &p:被创建的多项式的地址
@@ -174,7 +173,7 @@ void CreatPolyn(polynomial &p, int m)
 	}
 	printf("\n");
 }
-
+//----------------------------------------------------------------------------
 /*
 	把两个多项式相加,pa = pa + pb
 	polynomial &pa:被加的多项式,它的值会改变
