@@ -29,7 +29,7 @@ void CreatList(LinkList &p, float _coef, int _expn);
 void addAtTail(LinkList &p, float _coef, int _expn);
 void show(polynomial &p);
 void CreatPolyn(polynomial &p, int m);
-bool IsZero(polynomial &p);
+bool isZero(polynomial &p);
 void addPolyn(polynomial &pa, polynomial &pb);
 //----------------------------------------------------------------------------
 /*
@@ -140,7 +140,7 @@ void show(polynomial &p)
 
 	@Return bool
 */
-bool IsZero(polynomial &p)
+bool isZero(polynomial &p)
 {
 	if (p)
 	{
@@ -198,7 +198,7 @@ void CreatPolyn(polynomial &p, int m)
 */
 void addPolyn(polynomial &pa, polynomial &pb)
 {
-	if (!IsZero(pa) && !IsZero(pb))
+	if (!isZero(pa) && !isZero(pb))
 	{
 		/*
 			多项式pa和多项式pb都不为零且都不为NULL的情况
@@ -222,7 +222,7 @@ void addPolyn(polynomial &pa, polynomial &pb)
 			tempa = tempa->next;
 		}
 	}
-	if (IsZero(pa) && !IsZero(pb))
+	if (isZero(pa) && !isZero(pb))
 		/*
 			多项式pa为零或为NULL的情况,这时直接将pb的头结点赋值给pa
 		*/
