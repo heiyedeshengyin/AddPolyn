@@ -93,7 +93,7 @@ void addAtTail(LinkList &p, float _coef, int _expn)
 //----------------------------------------------------------------------------
 /*
 	显示多项式,把多项式打印出来
-	LinkList &p:被显示的多项式的地址
+	polynomial &p:被显示的多项式的地址
 
 	@Return void
 */
