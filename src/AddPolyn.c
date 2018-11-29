@@ -203,10 +203,10 @@ void addPolyn(polynomial &pa, polynomial &pb)
 		/*
 			多项式pa和多项式pb都不为零且都不为NULL的情况
 		*/
-		polynomial tempa;	//指向多项式pa头结点的指针tempa
-		polynomial tempb;	//指向多项式pb头结点的指针tempb
-		tempa = pa;
-		tempb = pb;
+		polynomial tempa;	//指向多项式pa各个结点的指针tempa
+		polynomial tempb;	//指向多项式pb各个结点的指针tempb
+		tempa = pa;	//指针tempa首先指向多项式pa的头结点
+		tempb = pb;	//指针tempb首先指向多项式pb的头结点
 		tempa->coef += tempb->coef;	//多项式pa常数项 = 多项式pa常数项 + 多项式pb常数项
 
 		while (tempa->next&&tempb->next)	//指针tempa和tempb都指向下一个结点,直到其中一个指针的下一个结点为NULL
