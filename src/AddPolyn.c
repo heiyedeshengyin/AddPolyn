@@ -103,28 +103,42 @@ void show(polynomial &p)
 	{
 		polynomial temp;
 		temp = p;
-		int flag = 0;
-		if (temp->coef != 0)
+		int flag = 0;	//flag标签,如果前几项系数为零,那么flag为1,将不打印系数为零的项,直到遇到系数不为零的项
+		if (temp->coef != 0)	//常数项不为零的打印情况
 		{
 			printf("%.3f", temp->coef);
 			flag = 0;
 		}
-		else
+		else	//常数项为零的情况,此时flag置为1
 			flag = 1;
 
-		while (temp->next)
+		while (temp->next)	//非常数项的打印情况
 		{
 			temp = temp->next;
-			if (temp->coef != 0 && flag == 0)
-				printf(" + %.3fx^%d", temp->coef, temp->expn);
-			if (temp->coef != 0 && flag == 1)
-			{
-				printf("%.3fx^%d", temp->coef, temp->expn);
-				flag = 0;
-			}
+			if (temp->coef > 0 && flag == 0)	//如果系数为正且flag为0的情况
+				if (temp->expn == 1)
+					printf(" + %.3fx", temp->coef);
+				else
+					printf(" + %.3fx^%d", temp->coef, temp->expn);
+			if (temp->coef < 0 && flag == 0)	//如果系数为负且flag为0的情况
+				if (temp->expn == 1)
+					printf(" - %.3fx", -temp->coef);
+				else
+					printf(" - %.3fx^%d", -temp->coef, temp->expn);
+			if (temp->coef != 0 && flag == 1)	//如果系数不为零且flag为1的情况,此时之前的项都未打印
+				if (temp->expn == 1)
+				{
+					printf("%.3fx^%d", temp->coef, temp->expn);
+					flag = 0;
+				}
+				else
+				{
+					printf("%.3fx", temp->coef);
+					flag = 0;
+				}
 		}
 
-		if (flag == 1)
+		if (flag == 1)	//如果所有系数和常数项都为零,则只打印一个0
 			printf("0");
 		printf("\n");
 	}
