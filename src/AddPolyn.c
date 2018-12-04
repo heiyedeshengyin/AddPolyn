@@ -126,16 +126,13 @@ void show(polynomial &p)
 				else
 					printf(" - %.3fx^%d", -temp->coef, temp->expn);
 			if (temp->coef != 0 && flag == 1)	//如果系数不为零且flag为1的情况,此时之前的项都未打印
+			{
 				if (temp->expn == 1)
-				{
 					printf("%.3fx^%d", temp->coef, temp->expn);
-					flag = 0;
-				}
 				else
-				{
 					printf("%.3fx", temp->coef);
-					flag = 0;
-				}
+				flag = 0;
+			}
 		}
 
 		if (flag == 1)	//如果所有系数和常数项都为零,则只打印一个0
